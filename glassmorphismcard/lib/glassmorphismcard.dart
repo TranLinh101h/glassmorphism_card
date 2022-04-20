@@ -1,3 +1,3 @@
-library glassmorphism_card;
+library glassmorphismcard;
 
 export 'src/glassmorphism_card.dart';

@@ -8,7 +8,7 @@ A single card with glassmorphism style have header (with left, center, right ite
 Add this in to your pubspec.yaml
 
 ```dart
-glassmorphism_card: ^0.0.1
+glassmorphismcard: ^0.0.1
 ```
 
 Import it
