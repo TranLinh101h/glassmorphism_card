@@ -46,27 +46,21 @@ class TestState extends State<Test> {
             SafeArea(
               child: Center(
                 child: GlassmorphismCard(
-                  color_Header: Colors.white,
-                  color_Body: Colors.blue,
-                  leading: Icon(
-                    Icons.star,
-                    color: Colors.yellow,
+                  backgroundColor: Colors.blue,
+                  title: Padding(
+                    padding: const EdgeInsets.only(left: 15),
+                    child: Text(
+                      'Hello world',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
-                  title: Text('Example Card'),
-                  trailing: Icon(
-                    Icons.add_circle,
-                    color: Colors.white,
-                  ),
-                  body: ListTile(
-                      leading: Icon(
-                        Icons.done,
-                        color: Colors.green[900],
-                      ),
-                      title: Text('Hello world'),
-                      trailing: Icon(
-                        Icons.remove,
-                        color: Colors.grey[900],
-                      )),
+                  body: Align(
+                      alignment: Alignment.bottomRight,
+                      child: Image.network(
+                          'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80')),
                 ),
               ),
             ),

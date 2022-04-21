@@ -8,7 +8,7 @@ A single card with glassmorphism style have header (with left, center, right ite
 Add this in to your pubspec.yaml
 
 ```dart
-glassmorphismcard: ^0.0.1
+glassmorphismcard: ^0.0.3
 ```
 
 Import it
@@ -20,27 +20,20 @@ Example
 
 ```dart
  GlassmorphismCard(
-                  color_Header: Colors.white,
-                  color_Body: Colors.blue,
-                  leading: Icon(
-                    Icons.star,
-                    color: Colors.yellow,
+                backgroundColor: Colors.blue,
+                title: Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Text(
+                    'Hello world',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold),
                   ),
-                  title: Text('Example Card'),
-                  trailing: Icon(
-                    Icons.add_circle,
-                    color: Colors.white,
-                  ),
-                  body: ListTile(
-                      leading: Icon(
-                        Icons.done,
-                        color: Colors.green[900],
-                      ),
-                      title: Text('Hello world'),
-                      trailing: Icon(
-                        Icons.remove,
-                        color: Colors.grey[900],
-                      )),
                 ),
+                body: Align(
+                    alignment: Alignment.bottomRight,
+                    child: Image.network(img)),
+              ),
 ```
 

@@ -1,79 +1,74 @@
 import 'package:flutter/material.dart';
 
-class GlassmorphismCard extends StatefulWidget {
+class GlassmorphismCard extends StatelessWidget {
   final double width;
   final double height;
-  final Color color_Header;
-  final Color color_Body;
-  final Widget? leading;
-  final Widget? title;
-  final Widget? trailing;
+  final Color backgroundColor;
+  final Color? titleColor;
+  final Color borderColor;
+  final double borderSize;
+  final Widget title;
   final Widget? body;
-
+  final Alignment alignTitle;
+  final double opacity;
+  final double circular;
   GlassmorphismCard(
-      {this.width = 350,
-      this.height = 150,
-      this.color_Header = Colors.white,
-      this.color_Body = Colors.cyan,
-      this.leading,
-      this.title,
-      this.trailing,
-      this.body});
+      {this.width = 300,
+      this.height = 250,
+      this.opacity = 0.4,
+      this.circular = 20,
+      this.backgroundColor = Colors.white,
+      this.borderColor = Colors.white,
+      this.borderSize = 1,
+      this.titleColor,
+      required this.title,
+      this.body,
+      this.alignTitle = Alignment.bottomLeft});
 
-  @override
-  GlassmorphismCardState createState() => GlassmorphismCardState();
-}
-
-class GlassmorphismCardState extends State<GlassmorphismCard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: widget.height,
-      width: widget.width,
-      child: Card(
-          color: widget.color_Header.withOpacity(0.5),
-          child: Column(
-            children: [
-              Container(
-                child: Stack(
-                  children: [
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: widget.leading,
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: widget.title,
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: widget.trailing,
-                      ),
-                    ),
-                  ],
+    return Stack(
+      children: [
+        Container(
+            height: height,
+            width: width,
+            decoration: BoxDecoration(
+              color: backgroundColor.withOpacity(opacity),
+              borderRadius: BorderRadius.circular(circular),
+            ),
+            child: null),
+        Container(
+            width: width - 5,
+            height: height - 5,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(circular),
+                border: Border(
+                    bottom: BorderSide(width: borderSize, color: borderColor),
+                    top: BorderSide(width: borderSize, color: borderColor),
+                    left: BorderSide(width: borderSize, color: borderColor),
+                    right: BorderSide(width: borderSize, color: borderColor))),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 20,
                 ),
-              ),
-              Expanded(
-                  child: Align(
-                alignment: Alignment.center,
-                child: Container(
-                  width: widget.width,
-                  height: widget.height - 50,
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  color: widget.color_Body.withOpacity(0.7),
-                  child: widget.body,
-                ),
-              )),
-            ],
-          )),
+                Expanded(
+                    flex: 1,
+                    child: Container(
+                      color: titleColor != null
+                          ? titleColor!.withOpacity(opacity)
+                          : null,
+                      child: Align(alignment: alignTitle, child: title),
+                    )),
+                Expanded(
+                    flex: 4,
+                    child: Container(
+                      padding: EdgeInsets.only(bottom: 10),
+                      child: body ?? null,
+                    ))
+              ],
+            )),
+      ],
     );
   }
 }
