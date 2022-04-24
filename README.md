@@ -6,12 +6,6 @@ separated with body (wrap a child content) by deeper color
 
 ## Usage
 
-Add this in to your pubspec.yaml
-
-```dart
-glassmorphismcard: ^0.0.4
-```
-
 Import it
 ```dart
 import 'package:glassmorphismcard/glassmorphism_card.dart';
