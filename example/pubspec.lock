@@ -77,9 +77,9 @@ packages:
   glassmorphismcard:
     dependency: "direct main"
     description:
-      name: glassmorphismcard
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: ".."
+      relative: true
+    source: path
     version: "0.0.4"
   lints:
     dependency: transitive
