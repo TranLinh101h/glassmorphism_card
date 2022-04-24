@@ -3,6 +3,22 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class GlassmorphismCard extends StatelessWidget {
+  const GlassmorphismCard({
+    Key? key,
+    this.width = 300,
+    this.height = 250,
+    this.opacity = 0.4,
+    this.circular = 20,
+    this.blur = 5,
+    this.backgroundColor = Colors.white,
+    this.borderColor = Colors.white,
+    this.borderSize = 1,
+    this.titleColor,
+    required this.title,
+    this.body,
+    this.alignTitle = Alignment.bottomLeft,
+  }) : super(key: key);
+
   final double width;
   final double height;
   final Color backgroundColor;
@@ -15,19 +31,6 @@ class GlassmorphismCard extends StatelessWidget {
   final double opacity;
   final double circular;
   final double blur;
-  GlassmorphismCard(
-      {this.width = 300,
-      this.height = 250,
-      this.opacity = 0.4,
-      this.circular = 20,
-      this.blur = 5,
-      this.backgroundColor = Colors.white,
-      this.borderColor = Colors.white,
-      this.borderSize = 1,
-      this.titleColor,
-      required this.title,
-      this.body,
-      this.alignTitle = Alignment.bottomLeft});
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +41,14 @@ class GlassmorphismCard extends StatelessWidget {
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur * 2),
             child: Container(
-                height: height,
-                width: width,
-                decoration: BoxDecoration(
-                  color: backgroundColor.withOpacity(opacity),
-                  borderRadius: BorderRadius.circular(circular),
-                ),
-                child: null),
+              height: height,
+              width: width,
+              decoration: BoxDecoration(
+                color: backgroundColor.withOpacity(opacity),
+                borderRadius: BorderRadius.circular(circular),
+              ),
+              child: null,
+            ),
           ),
         ),
         Container(
@@ -61,8 +65,8 @@ class GlassmorphismCard extends StatelessWidget {
           ),
           child: Column(
             children: [
-              SizedBox(
-                height: 20,
+              const SizedBox(
+                height: 20.0,
               ),
               Expanded(
                 flex: 1,
@@ -76,8 +80,8 @@ class GlassmorphismCard extends StatelessWidget {
               Expanded(
                 flex: 4,
                 child: Container(
-                  padding: EdgeInsets.only(bottom: 10),
-                  child: body ?? null,
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: body ?? Container(),
                 ),
               ),
             ],
