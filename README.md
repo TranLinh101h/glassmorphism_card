@@ -1,14 +1,22 @@
 ## Glassmorphism Card
-A single card with glassmorphism style that have header (left, center, right Widget) 
+
+A single card with glassmorphism style that have header (left, center, right Widget)
 separated with body (wrap a child content) by deeper color
 
 ![](example_card.png)
 
+## Features
+
+- Preconfigured UI with customizable styling
+- Card color can be changed
+- Completely customizable,change Container's opacity,blur,border size,radius etc.
+
 ## Usage
 
-Import it
-```dart
-import 'package:glassmorphismcard/glassmorphism_card.dart';
+Add this in to your pubspec.yaml:
+
+```
+glassmorphismcard: ^0.0.5
 ```
 
 Example
@@ -33,4 +41,3 @@ GlassmorphismCard(
   ),
 ),
 ```
-
